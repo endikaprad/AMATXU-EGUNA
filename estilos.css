@@ -244,7 +244,6 @@ body::after {
     transition: border-color 0.2s, box-shadow 0.2s;
     text-align: center;
     letter-spacing: 0.1em;
-    -moz-appearance: textfield;
 }
 
 .date-input::-webkit-inner-spin-button,
