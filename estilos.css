@@ -2191,7 +2191,7 @@ html.no-scroll {
     font-size: clamp(1.4rem, 4vw, 2.4rem);
     color: rgba(196, 164, 124, 0.35);
     line-height: 1;
-    padding-top: 0.1rem;
+    padding-top: 0.1rem; 
 }
 
 .hero-counter-label {
