@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#2e130b">
+    <link rel="icon" type="image/png" href="img/logoWeb.png">
+    <title>Para amatxu ♥️</title>
+
+    <!-- ✅ OPT: preconnect para que el navegador abra la conexión antes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- ✅ OPT: carga de fuentes NO bloqueante (media trick) -->
+    <link rel="preload" as="style"
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=DM+Mono:wght@300;400&display=swap">
+    <link rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=DM+Mono:wght@300;400&display=swap"
+      media="print" onload="this.media='all'">
+    <!-- Fallback por si JS está desactivado -->
+    <noscript>
+      <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=DM+Mono:wght@300;400&display=swap">
+    </noscript>
+
+    <link rel="stylesheet" href="estilos.css">
+
+    <!-- ✅ OPT: scripts en <head> con defer — se descargan en paralelo al parsear el HTML -->
+    <script src="reveal.js" defer></script>
+    <script src="petalos.js" defer></script>
+    <script src="login.js" defer></script>
+    <script src="galerias.js" defer></script>
+    <script src="videos.js" defer></script>
+    <script src="contador.js" defer></script>
+  </head>
+  <body>
+
+    <div id="petals"></div>
+
+    <!-- ════════ LOGIN ════════ -->
+    <div id="login-screen">
+      <div class="login-year">1971</div>
+      <div class="login-inner">
+        <span class="login-flower">🌸</span>
+        <h2>Acceso <em>especial</em></h2>
+        <p>¿Cuándo naciste?</p>
+        <div class="login-box">
+          <label class="login-label">A ver esa memoria...</label>
+          <div class="date-picker">
+            <div class="date-field">
+              <input type="number" id="dd" class="date-input" placeholder="DD"
+                min="1" max="31">
+              <span class="date-field-label">día</span>
+            </div>
+            <span class="date-sep">/</span>
+            <div class="date-field">
+              <input type="number" id="mm" class="date-input" placeholder="MM"
+                min="1" max="12">
+              <span class="date-field-label">mes</span>
+            </div>
+            <span class="date-sep">/</span>
+            <div class="date-field date-field--year">
+              <input type="number" id="yyyy" class="date-input date-input--year"
+                placeholder="YYYY" min="1900" max="2099">
+              <span class="date-field-label">año</span>
+            </div>
+          </div>
+          <div id="error" class="login-error"></div>
+          <button class="login-btn" onclick="comprobarFecha()">Entrar</button>
+          <div class="login-hint">Pista: ya tienes unos añitos 🫣</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MODAL 1 -->
+    <div id="modal1" class="modal-overlay">
+      <div class="modal-box">
+        <span class="modal-emoji">🎂</span>
+        <div class="modal-title">Te pongo un pastel virtual para que le empieces
+          a hacer caso a la nutricionista 😏</div>
+        <button class="modal-btn" onclick="siguienteModal()">Le haré
+          caso</button>
+      </div>
+    </div>
+
+    <!-- MODAL 2 -->
+    <div id="modal2" class="modal-overlay">
+      <div class="modal-box">
+        <span class="modal-emoji">😂</span>
+        <div class="modal-title">Que bien se te da mentir</div>
+      </div>
+    </div>
+
+    <!-- ════════ HERO ════════ -->
+    <section class="hero">
+      <div class="hero-scanlines"></div>
+      <div class="hero-year-bg">1971</div>
+      <div class="hero-content">
+        <div class="hero-stamp">3 de Mayo · 2026 · Día de la Madre</div>
+        <h1 class="hero-title">Feliz <em>Día</em><br>Amatxuu</h1>
+        <div class="hero-divider"></div>
+        <p class="hero-subtitle">Un viaje desde el principio hasta hoy,<br>para
+          la persona que lo es todo.</p>
+        <p class="hero-date-tag">1971 ——————————————————— 2026</p>
+        <div class="hero-counter">
+          <div class="hero-counter-grid">
+            <div class="hero-counter-unit">
+              <span class="hero-counter-num" id="contDias">—</span>
+              <span class="hero-counter-label">días</span>
+            </div>
+            <div class="hero-counter-sep">:</div>
+            <div class="hero-counter-unit">
+              <span class="hero-counter-num" id="contHoras">00</span>
+              <span class="hero-counter-label">horas</span>
+            </div>
+            <div class="hero-counter-sep">:</div>
+            <div class="hero-counter-unit">
+              <span class="hero-counter-num" id="contMins">00</span>
+              <span class="hero-counter-label">min</span>
+            </div>
+            <div class="hero-counter-sep">:</div>
+            <div class="hero-counter-unit">
+              <span class="hero-counter-num hero-counter-num--segs"
+                id="contSegs">00</span>
+              <span class="hero-counter-label">seg</span>
+            </div>
+          </div>
+          <p class="hero-counter-phrase">llenando nuestras vidas</p>
+        </div>
+      </div>
+      <div class="scroll-hint"><div class="scroll-arrow"></div></div>
+    </section>
+
+    <!-- ════════ LÍNEA DEL TIEMPO ════════ -->
+    <div class="timeline-section">
+      <div class="timeline-line"></div>
+
+      <!-- ERA 1971 -->
+      <div class="era era--static reveal" data-era="1971">
+        <div class="era-inner">
+          <div class="era-content left">
+            <span class="era-label">El principio de todo</span>
+            <h2 class="era-title">1971 —<br><em>Llegaste tú</em></h2>
+            <p class="era-text">El 12 de septiembre de 1971, comenzó la historia
+              una de las personas más importantes de nuestra familia. Una niña
+              con toda la vida por delante.</p>
+          </div>
+          <div class="era-dot">
+            <div class="era-dot-circle"></div>
+            <span class="era-year">1971</span>
+          </div>
+          <div class="era-media-col">
+            <div class="era-film-frame">
+              <video class="era-film-img" data-src="video/era1971.webm"
+                muted loop playsinline preload="none"></video>
+              <div class="era-film-scratches"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="era-separator"></div>
+
+      <!-- ERA 1995 -->
+      <div class="era has-video reveal" data-era="1980">
+        <!-- ✅ OPT: preload="none" en todos los vídeos de sección -->
+        <video class="section-video" data-src="video/era1980.webm" muted loop
+          playsinline preload="none"></video>
+        <div class="video-overlay"></div>
+        <div class="era-inner">
+          <div class="era-empty"><span
+              style="font-size:5rem;display:block;padding:2rem;opacity:0.75;text-align:right">🎒</span></div>
+          <div class="era-dot">
+            <div class="era-dot-circle"></div>
+            <span class="era-year">1995</span>
+          </div>
+          <div class="era-content right">
+            <span class="era-label">Tu juventud</span>
+            <h2 class="era-title">Cuando todo<br>era <em>nuevo</em></h2>
+            <p class="era-text">Los años de crecer, aprender y descubrir el
+              mundo. Una infancia llena de recuerdos que moldearon a la mujer
+              increíble que eres hoy.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="era-separator"></div>
+
+      <!-- ERA 2001 — Boda -->
+      <div class="era has-video reveal" data-era="1990">
+        <video class="section-video" data-src="video/era1990.webm" muted loop
+          playsinline preload="none"></video>
+        <div class="video-overlay"></div>
+        <div class="era-inner">
+          <div class="era-content left">
+            <span class="era-label">Un día inolvidable</span>
+            <h2 class="era-title">El día del<br><em>"sí, quiero"</em></h2>
+            <p class="era-text">Un "sí" que cambió el rumbo de tu historia</p>
+            <p class="era-text" style="margin-top:0.5rem">y de la mía...</p>
+          </div>
+          <div class="era-dot">
+            <div class="era-dot-circle"></div>
+            <span class="era-year">2001</span>
+          </div>
+          <div class="era-empty"><span
+              style="font-size:5rem;display:block;padding:2rem;opacity:0.85;text-align:left">👰🏻‍♀️</span></div>
+        </div>
+      </div>
+
+      <div class="era-separator"></div>
+
+      <!-- ERA 2007 — Mi nacimiento -->
+      <div class="era has-video reveal" data-era="2000">
+        <video class="section-video" data-src="video/era2000.webm" muted loop
+          playsinline preload="none"></video>
+        <div class="video-overlay"></div>
+        <div class="era-inner">
+          <div class="era-content right">
+            <span class="era-label">El día más importante</span>
+            <h2 class="era-title">2007 —<br><em>Llegué yo</em></h2>
+            <p class="era-text">El día en que te convertiste en madre. Y yo tuve
+              la suerte de tenerte a ti.</p>
+          </div>
+          <div class="era-dot">
+            <div class="era-dot-circle"></div>
+            <span class="era-year">2007</span>
+          </div>
+          <div class="era-empty"></div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ════════ ÁLBUM DE FOTOS ════════ -->
+    <section class="album-section">
+      <div class="album-container">
+        <span class="section-label">Álbum de recuerdos</span>
+        <h2 class="section-title">Momentos que<br><em>nunca
+            olvidaremos</em></h2>
+        <p class="album-intro reveal">Cada foto es un recuerdo, cada recuerdo es
+          tú.</p>
+
+        <div class="album-grid">
+
+          <!-- Tarjeta 1 — Juventud -->
+          <div class="album-card reveal" onclick="abrirGaleria(0)">
+            <div class="album-card-photo">
+              <!-- ✅ OPT: width/height explícitos evitan layout shift (CLS) -->
+              <img src="img/infancia.webp" alt="Juventud" width="400"
+                height="300" loading="lazy">
+              <div class="album-card-tape album-card-tape--tl"></div>
+              <div class="album-card-tape album-card-tape--br"></div>
+            </div>
+            <div class="album-card-caption">
+              <span class="album-card-year">1971 – 1995</span>
+              <h3 class="album-card-title">Juventud</h3>
+              <p class="album-card-text">Los primeros años, los primeros
+                sueños.</p>
+            </div>
+          </div>
+
+          <!-- Tarjeta 2 — Boda -->
+          <div class="album-card album-card--rot-pos reveal"
+            onclick="abrirGaleria(1)">
+            <div class="album-card-photo">
+              <img src="img/familia.webp" alt="Boda" width="400" height="300"
+                loading="lazy">
+              <div class="album-card-tape album-card-tape--tl"></div>
+              <div class="album-card-tape album-card-tape--br"></div>
+            </div>
+            <div class="album-card-caption">
+              <span class="album-card-year">2001</span>
+              <h3 class="album-card-title">La Boda</h3>
+              <p class="album-card-text">El día que dijiste sí.</p>
+            </div>
+          </div>
+
+          <!-- Tarjeta 3 — Mi nacimiento -->
+          <div class="album-card album-card--rot-neg reveal"
+            onclick="abrirGaleria(2)">
+            <div class="album-card-photo">
+              <img src="img/momentos.webp" alt="Mi nacimiento" width="400"
+                height="300" loading="lazy">
+              <div class="album-card-tape album-card-tape--tl"></div>
+              <div class="album-card-tape album-card-tape--br"></div>
+            </div>
+            <div class="album-card-caption">
+              <span class="album-card-year">2007</span>
+              <h3 class="album-card-title">¿Quién es este?</h3>
+              <p class="album-card-text">El día en que yo llegué al mundo.</p>
+            </div>
+          </div>
+
+        </div>
+      </div><!-- /.album-container -->
+    </section>
+
+    <!-- ════════ VÍDEOS AMAMA ════════ -->
+    <section class="amama-videos-section reveal">
+      <div class="amama-videos-header">
+        <span class="section-label">En su memoria</span>
+        <h2 class="section-title">Recuerdos de <em>Amama y Aitite</em></h2>
+        <p class="amama-videos-sub">Momentos que guardamos para siempre</p>
+      </div>
+
+      <div class="amama-videos-stage">
+
+        <!-- Vídeo izquierda -->
+        <div class="amama-vid-wrap amama-vid-wrap--left reveal">
+          <div class="amama-vid-frame">
+            <div class="amama-vid-glow"></div>
+            <video class="amama-vid" data-src="video/amama1.webm"
+              muted loop playsinline preload="none"></video>
+            <div class="amama-vid-overlay"></div>
+            <div class="amama-vid-scratches"></div>
+          </div>
+          <p class="amama-vid-caption">Un instante contigo</p>
+        </div>
+
+        <!-- Vídeo central — más grande -->
+        <div class="amama-vid-wrap amama-vid-wrap--center reveal">
+          <div class="amama-vid-frame amama-vid-frame--center">
+            <div class="amama-vid-glow amama-vid-glow--center"></div>
+            <video class="amama-vid" data-src="video/amama2.webm"
+              muted loop playsinline preload="none"></video>
+            <div class="amama-vid-overlay"></div>
+            <div class="amama-vid-scratches"></div>
+          </div>
+          <p class="amama-vid-caption">Siempre en nuestro corazón</p>
+        </div>
+
+        <!-- Vídeo derecha -->
+        <div class="amama-vid-wrap amama-vid-wrap--right reveal">
+          <div class="amama-vid-frame">
+            <div class="amama-vid-glow"></div>
+            <video class="amama-vid" data-src="video/amama3.webm"
+              muted loop playsinline preload="none"></video>
+            <div class="amama-vid-overlay"></div>
+            <div class="amama-vid-scratches"></div>
+          </div>
+          <p class="amama-vid-caption">Te echamos de menos</p>
+        </div>
+
+      </div>
+
+      <!-- partículas decorativas -->
+      <div class="amama-videos-particles" aria-hidden="true">
+        <span></span><span></span><span></span>
+        <span></span><span></span><span></span>
+      </div>
+    </section>
+
+    <!-- ════════ HOMENAJE — Amama ════════ -->
+    <section class="tribute-section reveal" onclick="abrirGaleria(3)">
+      <div class="tribute-bg-texture"></div>
+
+      <div class="candle" aria-hidden="true">
+        <div class="candle-flame-wrap">
+          <div class="candle-glow"></div>
+          <div class="candle-flame"></div>
+        </div>
+        <div class="candle-body">
+          <div class="candle-wax"></div>
+        </div>
+      </div>
+
+      <div class="tribute-inner">
+        <span class="tribute-eyebrow">En su memoria</span>
+        <h2 class="tribute-name">Amama</h2>
+        <div class="tribute-rule">
+          <span></span><span class="tribute-star">✦</span><span></span>
+        </div>
+        <p class="tribute-quote">
+          "Aunque ya no estás aquí,<br>
+          cada vez que me miro en el espejo<br>
+          te encuentro a ti."
+        </p>
+        <span class="tribute-tap">Toca para recordarla</span>
+      </div>
+
+      <div class="tribute-particles" aria-hidden="true">
+        <span></span><span></span><span></span>
+        <span></span><span></span><span></span>
+        <span></span><span></span>
+      </div>
+    </section>
+
+    <!-- Modales galería -->
+    <div id="galeriaModal" class="modal-overlay">
+      <div class="modal-box modal-box--gallery">
+        <span class="modal-close" onclick="cerrarGaleria()">✕</span>
+        <div id="galeriaGrid" class="galeria-grid"></div>
+      </div>
+    </div>
+    <div id="imgZoom" class="modal-overlay">
+      <div
+        style="position:relative;display:flex;justify-content:center;align-items:center;">
+        <span class="zoom-close">✕</span>
+        <img id="imgZoomed" alt>
+      </div>
+    </div>
+
+    <!-- ════════ CITA ════════ -->
+    <section class="quote-section has-video reveal">
+      <div class="video-overlay"></div>
+      <div class="quote-inner">
+        <span class="quote-mark">"</span>
+        <p class="quote-text">Una madre es alguien que ve lo que no eres
+          todavía,<br>y te trata como si ya fueras lo que puedes llegar a
+          ser.</p>
+        <span class="quote-author">— Para ti, amatxu</span>
+      </div>
+    </section>
+
+    <!-- ════════ FINAL ════════ -->
+    <section class="final-section has-video reveal">
+      <div class="video-overlay"></div>
+      <div class="final-inner">
+        <h2 class="final-big">Te quiero,<br><em>amatxu</em></h2>
+        <p class="final-sub">Hoy, mañana y siempre.</p>
+        <div class="hearts-row">
+          <span class="heart">💗</span>
+          <span class="heart">💖</span>
+          <span class="heart">💗</span>
+        </div>
+      </div>
+    </section>
+
+    <footer>🌸 Feliz Día de la Madre · 3 de Mayo 2026 🌸</footer>
+
+  </body>
+</html>
