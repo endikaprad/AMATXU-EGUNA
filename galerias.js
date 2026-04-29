@@ -171,9 +171,19 @@ function crearImgWrapper(src, index) {
         once: true,
     });
 
+    // En crearImgWrapper — sustituye el click del img
     img.addEventListener("click", () => {
-        document.getElementById("imgZoomed").src = src;
-        document.getElementById("imgZoom").classList.add("show");
+        const zoom = document.getElementById("imgZoom");
+        const zoomed = document.getElementById("imgZoomed");
+
+        // Guardar posición de la miniatura para la animación de cierre
+        const rect = img.getBoundingClientRect();
+        zoom.dataset.originX = rect.left + rect.width / 2;
+        zoom.dataset.originY = rect.top + rect.height / 2;
+
+        zoomed.src = src;
+        zoom.classList.remove("closing");
+        zoom.classList.add("show");
     });
 
     // Precargar imagen de zoom al pasar el ratón (o touch start en móvil)
@@ -275,18 +285,32 @@ function cerrarGaleria() {
     }, 400);
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-    document.querySelector(".zoom-close").addEventListener("click", () => {
-        document.getElementById("imgZoom").classList.remove("show");
-    });
+function cerrarZoom() {
+    const zoom = document.getElementById("imgZoom");
+    const zoomed = document.getElementById("imgZoomed");
 
-    document.getElementById("imgZoom").addEventListener("click", function (e) {
-        if (e.target.id === "imgZoom") this.classList.remove("show");
-    });
+    const originX = zoom.dataset.originX || window.innerWidth / 2;
+    const originY = zoom.dataset.originY || window.innerHeight / 2;
 
-    document
-        .getElementById("galeriaModal")
-        .addEventListener("click", function (e) {
-            if (!e.target.closest(".modal-box")) this.classList.remove("show");
-        });
+    // Transform-origin apunta al origen de la miniatura
+    const rect = zoomed.getBoundingClientRect();
+    const cx = rect.left + rect.width / 2;
+    const cy = rect.top + rect.height / 2;
+    const dx = originX - cx;
+    const dy = originY - cy;
+
+    zoomed.style.setProperty("--close-dx", `${dx}px`);
+    zoomed.style.setProperty("--close-dy", `${dy}px`);
+
+    zoom.classList.add("closing");
+    setTimeout(() => {
+        zoom.classList.remove("show", "closing");
+        zoomed.style.removeProperty("--close-dx");
+        zoomed.style.removeProperty("--close-dy");
+    }, 200);
+}
+
+document.querySelector(".zoom-close").addEventListener("click", cerrarZoom);
+document.getElementById("imgZoom").addEventListener("click", function (e) {
+    if (e.target.id === "imgZoom") cerrarZoom();
 });
