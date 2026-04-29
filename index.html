@@ -7,25 +7,26 @@
     <link rel="icon" type="image/png" href="img/logoWeb.png">
     <title>Para amatxu ♥️</title>
 
-    <!-- ✅ OPT: preconnect para que el navegador abra la conexión antes -->
+    <!-- ✅ Preconnect para fuentes -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <!-- ✅ OPT: carga de fuentes NO bloqueante (media trick) -->
+    <!-- ✅ Fuentes no bloqueantes -->
     <link rel="preload" as="style"
       href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=DM+Mono:wght@300;400&display=swap">
     <link rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=DM+Mono:wght@300;400&display=swap"
       media="print" onload="this.media='all'">
-    <!-- Fallback por si JS está desactivado -->
     <noscript>
       <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=DM+Mono:wght@300;400&display=swap">
     </noscript>
 
     <link rel="stylesheet" href="estilos.css">
+    <!-- ✅ NUEVO: parche de rendimiento al final del CSS base -->
+    <link rel="stylesheet" href="rendimiento-patch.css">
 
-    <!-- ✅ OPT: scripts en <head> con defer — se descargan en paralelo al parsear el HTML -->
+    <!-- ✅ Scripts con defer — descarga en paralelo, ejecuta tras parsear HTML -->
     <script src="reveal.js" defer></script>
     <script src="petalos.js" defer></script>
     <script src="login.js" defer></script>
@@ -49,19 +50,19 @@
           <div class="date-picker">
             <div class="date-field">
               <input type="number" id="dd" class="date-input" placeholder="DD"
-                min="1" max="31">
+                min="1" max="31" inputmode="numeric">
               <span class="date-field-label">día</span>
             </div>
             <span class="date-sep">/</span>
             <div class="date-field">
               <input type="number" id="mm" class="date-input" placeholder="MM"
-                min="1" max="12">
+                min="1" max="12" inputmode="numeric">
               <span class="date-field-label">mes</span>
             </div>
             <span class="date-sep">/</span>
             <div class="date-field date-field--year">
               <input type="number" id="yyyy" class="date-input date-input--year"
-                placeholder="YYYY" min="1900" max="2099">
+                placeholder="YYYY" min="1900" max="2099" inputmode="numeric">
               <span class="date-field-label">año</span>
             </div>
           </div>
@@ -151,8 +152,11 @@
           </div>
           <div class="era-media-col">
             <div class="era-film-frame">
+              <!-- ✅ poster con color sólido para evitar espacio vacío mientras carga -->
               <video class="era-film-img" data-src="video/era1971.webm"
-                muted loop playsinline preload="none"></video>
+                muted loop playsinline preload="none"
+                poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='280' height='340'%3E%3Crect width='100%25' height='100%25' fill='%231a0a08'/%3E%3C/svg%3E">
+              </video>
               <div class="era-film-scratches"></div>
             </div>
           </div>
@@ -163,9 +167,10 @@
 
       <!-- ERA 1995 -->
       <div class="era has-video reveal" data-era="1980">
-        <!-- ✅ OPT: preload="none" en todos los vídeos de sección -->
         <video class="section-video" data-src="video/era1980.webm" muted loop
-          playsinline preload="none"></video>
+          playsinline preload="none"
+          poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1' height='1'%3E%3Crect width='100%25' height='100%25' fill='%231a0a08'/%3E%3C/svg%3E">
+        </video>
         <div class="video-overlay"></div>
         <div class="era-inner">
           <div class="era-empty"><span
@@ -189,7 +194,9 @@
       <!-- ERA 2001 — Boda -->
       <div class="era has-video reveal" data-era="1990">
         <video class="section-video" data-src="video/era1990.webm" muted loop
-          playsinline preload="none"></video>
+          playsinline preload="none"
+          poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1' height='1'%3E%3Crect width='100%25' height='100%25' fill='%231a0a08'/%3E%3C/svg%3E">
+        </video>
         <div class="video-overlay"></div>
         <div class="era-inner">
           <div class="era-content left">
@@ -212,7 +219,9 @@
       <!-- ERA 2007 — Mi nacimiento -->
       <div class="era has-video reveal" data-era="2000">
         <video class="section-video" data-src="video/era2000.webm" muted loop
-          playsinline preload="none"></video>
+          playsinline preload="none"
+          poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1' height='1'%3E%3Crect width='100%25' height='100%25' fill='%231a0a08'/%3E%3C/svg%3E">
+        </video>
         <div class="video-overlay"></div>
         <div class="era-inner">
           <div class="era-empty"><span
@@ -230,10 +239,12 @@
         </div>
       </div>
 
-      <!-- ERA 2026 · video/era2026.webm — overlay más oscuro para legibilidad -->
+      <!-- ERA 2026 -->
       <div class="era has-video reveal" data-era="2026">
         <video class="section-video" data-src="video/era2026.webm" muted loop
-          playsinline></video>
+          playsinline preload="none"
+          poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1' height='1'%3E%3Crect width='100%25' height='100%25' fill='%231a0a08'/%3E%3C/svg%3E">
+        </video>
         <div class="video-overlay"></div>
         <div class="era-inner">
           <div class="era-content left">
@@ -261,17 +272,15 @@
         <h2 class="section-title">Momentos que<br><em>nunca
             olvidaremos</em></h2>
         <p class="album-intro reveal">Cada foto es un recuerdo, cada recuerdo
-          es
-          tú.</p>
+          es tú.</p>
 
         <div class="album-grid">
 
           <!-- Tarjeta 1 — Juventud -->
           <div class="album-card reveal" onclick="abrirGaleria(0)">
             <div class="album-card-photo">
-              <!-- ✅ OPT: width/height explícitos evitan layout shift (CLS) -->
               <img src="img/infancia.webp" alt="Juventud" width="400"
-                height="300" loading="lazy">
+                height="300" loading="lazy" decoding="async">
               <div class="album-card-tape album-card-tape--tl"></div>
               <div class="album-card-tape album-card-tape--br"></div>
             </div>
@@ -288,7 +297,7 @@
             onclick="abrirGaleria(1)">
             <div class="album-card-photo">
               <img src="img/familia.webp" alt="Boda" width="400" height="300"
-                loading="lazy">
+                loading="lazy" decoding="async">
               <div class="album-card-tape album-card-tape--tl"></div>
               <div class="album-card-tape album-card-tape--br"></div>
             </div>
@@ -304,7 +313,7 @@
             onclick="abrirGaleria(2)">
             <div class="album-card-photo">
               <img src="img/momentos.webp" alt="Mi nacimiento" width="400"
-                height="300" loading="lazy">
+                height="300" loading="lazy" decoding="async">
               <div class="album-card-tape album-card-tape--tl"></div>
               <div class="album-card-tape album-card-tape--br"></div>
             </div>
@@ -334,7 +343,9 @@
           <div class="amama-vid-frame">
             <div class="amama-vid-glow"></div>
             <video class="amama-vid" data-src="video/amama1.webm"
-              muted loop playsinline preload="none"></video>
+              muted loop playsinline preload="none"
+              poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1' height='1'%3E%3Crect width='100%25' height='100%25' fill='%230a0705'/%3E%3C/svg%3E">
+            </video>
             <div class="amama-vid-overlay"></div>
             <div class="amama-vid-scratches"></div>
           </div>
@@ -346,7 +357,9 @@
           <div class="amama-vid-frame amama-vid-frame--center">
             <div class="amama-vid-glow amama-vid-glow--center"></div>
             <video class="amama-vid" data-src="video/amama2.webm"
-              muted loop playsinline preload="none"></video>
+              muted loop playsinline preload="none"
+              poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1' height='1'%3E%3Crect width='100%25' height='100%25' fill='%230a0705'/%3E%3C/svg%3E">
+            </video>
             <div class="amama-vid-overlay"></div>
             <div class="amama-vid-scratches"></div>
           </div>
@@ -358,7 +371,9 @@
           <div class="amama-vid-frame">
             <div class="amama-vid-glow"></div>
             <video class="amama-vid" data-src="video/amama3.webm"
-              muted loop playsinline preload="none"></video>
+              muted loop playsinline preload="none"
+              poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1' height='1'%3E%3Crect width='100%25' height='100%25' fill='%230a0705'/%3E%3C/svg%3E">
+            </video>
             <div class="amama-vid-overlay"></div>
             <div class="amama-vid-scratches"></div>
           </div>
