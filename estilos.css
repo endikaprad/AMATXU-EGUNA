@@ -1753,7 +1753,7 @@ footer {
     font-size: 0.85rem;
     color: var(--sepia-light);
     border-top: 1px solid rgba(200, 86, 106, 0.1);
-    letter-spacing: 0.1em;
+    letter-spacing: 0.1em; 
 }
 
 .reveal {
