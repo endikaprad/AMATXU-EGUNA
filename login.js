@@ -37,7 +37,6 @@ document.addEventListener("DOMContentLoaded", () => {
     document.body.classList.add("no-scroll");
     document.documentElement.classList.add("no-scroll");
 
-    // Limitar longitud máxima
     limitarInput(ddInput, 2);
     limitarInput(mmInput, 2);
     limitarInput(yyyyInput, 4);
@@ -52,6 +51,70 @@ document.addEventListener("DOMContentLoaded", () => {
     yyyyInput.addEventListener("keydown", e => {
         if (e.key === "Enter") comprobarFecha();
     });
+
+    /* ── Cierre final con transición suave ── */
+    function cerrarOverlay() {
+        const overlay = document.getElementById("welcome-overlay");
+
+        // Limpiar cualquier transition inline que se haya puesto antes
+        overlay.style.transition = "";
+        overlay.style.opacity = "";
+
+        // Forzar que el navegador lea el estado actual antes de animar
+        overlay.offsetHeight;
+
+        // Fade out suave con escala ligera hacia arriba
+        overlay.style.transition = "opacity 0.9s ease, transform 0.9s cubic-bezier(0.4,0,0.2,1)";
+        overlay.style.opacity = "0";
+        overlay.style.transform = "scale(1.04)";
+
+        setTimeout(() => {
+            overlay.style.display = "none";
+            document.body.classList.remove("no-scroll");
+            document.documentElement.classList.remove("no-scroll");
+        }, 900);
+    }
+
+    /* ── Paso 2: "Qué bien se te da mentir" — toca el overlay para cerrar ── */
+    function mostrarPaso2() {
+        const overlay = document.getElementById("welcome-overlay");
+
+        // Fade out rápido del paso 1
+        overlay.style.transition = "opacity 0.3s ease";
+        overlay.style.opacity = "0";
+
+        setTimeout(() => {
+            overlay.innerHTML = `
+                <span class="welcome-flower">😂</span>
+                <div class="welcome-line" style="opacity:1"></div>
+                <p class="welcome-text" style="opacity:1">Qué bien se te da <em>mentir</em></p>
+                <p class="welcome-tap">Toca para continuar</p>
+            `;
+
+            // Fade in del paso 2
+            overlay.style.transition = "opacity 0.5s ease";
+            overlay.style.opacity = "1";
+
+            // Tocar el overlay lo cierra con transición bonita
+            overlay.addEventListener("click", cerrarOverlay, { once: true });
+        }, 300);
+    }
+
+    /* ── Secuencia de entrada: fade login → overlay paso 1 ── */
+    function entrar() {
+        const loginScreen = document.getElementById("login-screen");
+        const overlay = document.getElementById("welcome-overlay");
+
+        loginScreen.classList.add("fade-out");
+
+        setTimeout(() => {
+            loginScreen.style.display = "none";
+            overlay.classList.add("show");
+
+            document.getElementById("btn-hare-caso")
+                .addEventListener("click", mostrarPaso2, { once: true });
+        }, 700);
+    }
 
     /* ── Validación y acceso ── */
     window.comprobarFecha = function () {
@@ -69,10 +132,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         if (dia === FECHA_CORRECTA_DIA && mes === FECHA_CORRECTA_MES && anyo === FECHA_CORRECTA_ANYO) {
-            document.getElementById("login-screen").style.display = "none";
-            document.body.classList.remove("no-scroll");
-            document.documentElement.classList.remove("no-scroll");
-            setTimeout(() => document.getElementById("modal1").classList.add("show"), 300);
+            entrar();
         } else {
             errorDiv.textContent = mensajes[intentos] || "Ya no sabes ni lo que poner 🤣";
             intentos++;
@@ -83,12 +143,4 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     };
 
-    /* ── Modal 2 ── */
-    window.siguienteModal = function () {
-        document.getElementById("modal1").classList.remove("show");
-        setTimeout(() => document.getElementById("modal2").classList.add("show"), 150);
-    };
-    document.getElementById("modal2").addEventListener("click", e => {
-        if (!e.target.closest(".modal-box")) e.currentTarget.classList.remove("show");
-    });
 });

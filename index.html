@@ -36,6 +36,14 @@
 
     <div id="petals"></div>
 
+    <!-- ════════ OVERLAY BIENVENIDA ════════ -->
+    <div id="welcome-overlay" data-step="1">
+      <span class="welcome-flower">🎂</span>
+      <div class="welcome-line"></div>
+      <p class="welcome-text">Te pongo un pastel virtual para que le empieces<br>a hacer caso a la <em>nutricionista</em> 😏</p>
+      <button class="welcome-btn" id="btn-hare-caso">Le haré caso</button>
+    </div>
+
     <!-- ════════ LOGIN ════════ -->
     <div id="login-screen">
       <div class="login-year">1971</div>
@@ -68,25 +76,6 @@
           <button class="login-btn" onclick="comprobarFecha()">Entrar</button>
           <div class="login-hint">Pista: ya tienes unos añitos 🫣</div>
         </div>
-      </div>
-    </div>
-
-    <!-- MODAL 1 -->
-    <div id="modal1" class="modal-overlay">
-      <div class="modal-box">
-        <span class="modal-emoji">🎂</span>
-        <div class="modal-title">Te pongo un pastel virtual para que le empieces
-          a hacer caso a la nutricionista 😏</div>
-        <button class="modal-btn" onclick="siguienteModal()">Le haré
-          caso</button>
-      </div>
-    </div>
-
-    <!-- MODAL 2 -->
-    <div id="modal2" class="modal-overlay">
-      <div class="modal-box">
-        <span class="modal-emoji">😂</span>
-        <div class="modal-title">Que bien se te da mentir</div>
       </div>
     </div>
 
@@ -463,7 +452,13 @@
       </div>
     </section>
 
-    <footer>🌸 Feliz Día de la Madre · 3 de Mayo 2026 🌸</footer>
+    <footer>
+      <p>🌸 Feliz Día de la Madre · 3 de Mayo 2026 🌸</p>
+      <p
+        style="margin-top:0.6rem; font-size:0.75rem; letter-spacing:0.15em; color:rgba(196,164,124,0.4);">
+        © 2026 Endika Prado
+      </p>
+    </footer>
 
   </body>
 </html>
