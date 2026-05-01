@@ -161,6 +161,12 @@ const galerias = [
         "img/naci/naci42.webp",
         "img/naci/naci43.webp",
         "img/naci/naci44.webp",
+        "img/naci/naci45.webp",
+        "img/naci/naci46.webp",
+        "img/naci/naci47.webp",
+        "img/naci/naci48.webp",
+        "img/naci/naci49.webp",
+        "img/naci/naci50.webp",
     ],
     // Galería 3 — Amama
     [
