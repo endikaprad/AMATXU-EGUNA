@@ -1,3 +1,8 @@
+// Si viene de una recarga (no de navegación), borrar sesión
+if (performance.getEntriesByType("navigation")[0]?.type === "reload") {
+    sessionStorage.removeItem("amatxu_acceso");
+}
+
 const FECHA_CORRECTA_DIA = 12;
 const FECHA_CORRECTA_MES = 9;
 const FECHA_CORRECTA_ANYO = 1971;
@@ -26,7 +31,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const loginScreen = document.getElementById("login-screen");
     const overlay     = document.getElementById("welcome-overlay");
 
-    // Si ya autenticó en esta sesión del navegador, saltamos el login directamente
     if (sessionStorage.getItem("amatxu_acceso") === "1") {
         if (loginScreen) loginScreen.style.display = "none";
         document.body.classList.remove("no-scroll");
@@ -81,7 +85,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function entrar() {
-        sessionStorage.setItem("amatxu_acceso", "1");   // ← persiste sesión
+        sessionStorage.setItem("amatxu_acceso", "1");
         loginScreen.classList.add("fade-out");
         setTimeout(() => {
             loginScreen.style.display = "none";

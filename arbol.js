@@ -1,4 +1,3 @@
-// CHECK SESIÓN — si no ha hecho login, volver a index 
 if (sessionStorage.getItem("amatxu_acceso") !== "1") {
     window.location.replace("index.html");
 }
@@ -9,7 +8,7 @@ const personas = {
         rol: "Abuela paterna",
         inicial: "A",
         foto: "img/arbol/amamaant.jpg",
-        frase: "La raíz del lado de Aita. Una mujer que supo dar amor con sus manos y su silencio."
+        frase: "Se vaciaba por los demás sin hacer ruido, sin pedir nada, sin guardar nada para ella. Nunca he conocido a nadie mejor, y sé que nunca lo haré."
     },
     anselmo: {
         nombre: "Aitite Anselmo",
@@ -23,7 +22,7 @@ const personas = {
         rol: "Abuela materna",
         inicial: "T",
         foto: "img/arbol/amamater.jpg",
-        frase: "Como la tierra que da sin preguntar, ella regaló su vida entera a los suyos en silencio. Hay personas que son únicas en el mundo, y ella era una de ellas."
+        frase: "De ella heredó Ama su ternura y esa sonrisa que ilumina cualquier cuarto."
     },
     aita: {
         nombre: "Aita",
@@ -41,7 +40,7 @@ const personas = {
     },
     ama: {
         nombre: "Ama",
-        rol: "❤️",
+        rol: "Mi madre ❤️",
         inicial: "M",
         foto: "img/arbol/ama.jpg",
         frase: "El centro de todo. La persona que hizo de nuestra casa un hogar con solo estar en él."
