@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="theme-color" content="#200e0c">
+        <title>Árbol Familiar · Para Amatxu</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=DM+Mono:wght@300;400&display=swap">
+
+        <link rel="stylesheet" href="estilos.css">
+        <link rel="stylesheet" href="navbar.css">
+        <link rel="stylesheet" href="arbol.css">
+
+        <script src="petalos.js" defer></script>
+        <script src="navbar.js" defer></script>
+        <script src="arbol.js" defer></script>
+    </head>
+    <body>
+
+        <!-- PÉTALOS -->
+        <div id="petals"></div>
+
+        <!-- ════════ NAVBAR ════════ -->
+        <nav class="navbar" aria-label="Navegación principal">
+            <div class="navbar-menu" id="navMenu" role="menubar">
+
+                <a class="nav-item" href="index.html" data-page="index.html"
+                    role="menuitem">
+                    <span class="nav-item-text">Inicio</span>
+                </a>
+
+                <div class="nav-sep"></div>
+
+                <a class="nav-item" href="index.html#album-section"
+                    role="menuitem">
+                    <span class="nav-item-text">Recuerdos</span>
+                </a>
+
+                <div class="nav-sep"></div>
+
+                <a class="nav-item" href="index.html#amama-videos"
+                    role="menuitem">
+                    <span class="nav-item-text">Amama</span>
+                </a>
+
+                <div class="nav-sep"></div>
+
+                <a class="nav-item" href="index.html#quote-section"
+                    role="menuitem">
+                    <span class="nav-item-text">Para ti</span>
+                </a>
+
+                <div class="nav-sep"></div>
+
+                <a class="nav-item active" href="arbol.html"
+                    data-page="arbol.html" role="menuitem">
+                    <span class="nav-item-text">Árbol familiar</span>
+                </a>
+
+            </div>
+        </nav>
+
+        <!-- ════════ ÁRBOL ════════ -->
+        <div class="arbol-page">
+
+            <div class="arbol-header">
+                <span class="arbol-eyebrow">nuestra familia</span>
+                <h1 class="arbol-title">El árbol que<br><em>nos une</em></h1>
+                <div class="arbol-divider"></div>
+            </div>
+
+            <div class="arbol-wrap">
+
+                <!-- ══ GEN 1: Abuelos ══ -->
+                <!-- Grid 3 cols idéntico al de Gen 2 para alineación perfecta:
+                     col-1=bloque paterno (Auro+Aita) | col-2=boda | col-3=Ama -->
+                <div class="gen gen-1" style="
+                    display:grid;
+                    grid-template-columns: 1fr 80px 1fr;
+                    width:100%;
+                    align-items:flex-start;
+                ">
+                    <!-- Col 1: Antonia centrada sobre el bloque Auro+Aita -->
+                    <div class="antonia-wrap"
+                        style="display:flex; justify-content:center;">
+                        <div class="nodo" onclick="abrirModal('antonia')"
+                            tabindex="0" role="button"
+                            aria-label="Ver perfil de Amama Antonia">
+                            <div class="nodo-foto">
+                                <img src alt="Amama Antonia"
+                                    onerror="this.style.display='none'">
+                                <span class="nodo-inicial">A</span>
+                            </div>
+                            <span class="nodo-nombre">Amama Antonia</span>
+                            <span class="nodo-rol">Abuela paterna</span>
+                        </div>
+                    </div>
+
+                    <!-- Col 2: vacía (ocupa el hueco del conector de boda) -->
+                    <div></div>
+
+                    <!-- Col 3: Anselmo+Tere centrados sobre Ama -->
+                    <!-- Col 3: Anselmo+Tere alineados EXACTO sobre Ama -->
+                    <div class="materno-wrap"
+                        style="display:flex; justify-content:center;">
+                        <div style="display:flex; align-items:flex-start;">
+                            <div class="nodo" onclick="abrirModal('anselmo')"
+                                tabindex="0" role="button"
+                                aria-label="Ver perfil de Aitite Anselmo">
+                                <div class="nodo-foto">
+                                    <img src alt="Aitite Anselmo"
+                                        onerror="this.style.display='none'">
+                                    <span class="nodo-inicial">A</span>
+                                </div>
+                                <span class="nodo-nombre">Aitite Anselmo</span>
+                                <span class="nodo-rol">Abuelo materno</span>
+                            </div>
+                            <div class="conector-h"></div>
+                            <div class="nodo" onclick="abrirModal('tere')"
+                                tabindex="0" role="button"
+                                aria-label="Ver perfil de Amama Tere">
+                                <div class="nodo-foto">
+                                    <img src alt="Amama Tere"
+                                        onerror="this.style.display='none'">
+                                    <span class="nodo-inicial">T</span>
+                                </div>
+                                <span class="nodo-nombre">Amama Tere</span>
+                                <span class="nodo-rol">Abuela materna</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Conectores gen 1 → gen 2: mismo grid 3 cols -->
+                <div class="gen gen-2" style="
+                    display:grid;
+                    grid-template-columns: 1fr 80px 1fr;
+                    width:100%;
+                ">
+                    <div
+                        style="display:flex; justify-content:center; margin-top: 10px;">
+                        <div class="conector-v conector-antonia"
+                            style="height:38px;"></div>
+                    </div>
+                    <div></div>
+                    <div
+                        style="display:flex; justify-content:center; margin-bottom: 10px;">
+                        <div class="conector-v conector-materno"
+                            style="height:38px;"></div>
+                    </div>
+                </div>
+
+                <!-- ══ GEN 2: [Tía Auro — Aita] 💍 Ama ══ -->
+                <div class="gen gen-3" style="
+                    display:grid;
+                    grid-template-columns: 1fr 80px 1fr;
+                    width:100%;
+                    align-items:flex-start;
+                ">
+                    <!-- Col 1: Tía Auro + conector + Aita (centrados en la columna) -->
+                    <div style="display:flex; justify-content:center;">
+                        <div class="gen2-paterno">
+                            <div class="nodo nodo--tia"
+                                onclick="abrirModal('auro')"
+                                tabindex="0" role="button"
+                                aria-label="Ver perfil de Tía Auro">
+                                <div class="nodo-foto">
+                                    <img src alt="Tía Auro"
+                                        onerror="this.style.display='none'">
+                                    <span class="nodo-inicial">Au</span>
+                                </div>
+                                <span class="nodo-nombre">Tía Auro</span>
+                                <span class="nodo-rol">Hermana de Aita</span>
+                            </div>
+                            <div class="conector-h-fraternal"></div>
+                            <div class="nodo" onclick="abrirModal('aita')"
+                                tabindex="0" role="button"
+                                aria-label="Ver perfil de Aita">
+                                <div class="nodo-foto">
+                                    <img src alt="Aita"
+                                        onerror="this.style.display='none'">
+                                    <span class="nodo-inicial">A</span>
+                                </div>
+                                <span class="nodo-nombre">Aita</span>
+                                <span class="nodo-rol">Tu marido</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Col 2: Conector boda -->
+                    <div
+                        style="display:flex; justify-content:center; align-items:center; padding-top:23px;">
+                        <div class="boda-conector" style="margin-top:0;">
+                            <div class="boda-linea"></div>
+                            <span class="boda-label">💍 CASADOS</span>
+                            <div class="boda-linea"></div>
+                        </div>
+                    </div>
+
+                    <!-- Col 3: Ama centrada -->
+                    <div style="display:flex;  margin-left:18px;">
+                        <div class="nodo nodo--ama" onclick="abrirModal('ama')"
+                            tabindex="0" role="button"
+                            aria-label="Ver perfil de Ama">
+                            <div class="nodo-foto">
+                                <img src alt="Ama"
+                                    onerror="this.style.display='none'">
+                                <span class="nodo-inicial">M</span>
+                            </div>
+                            <span class="nodo-nombre">Ama</span>
+                            <span class="nodo-rol">❤️</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Conector gen 2 → gen 3 -->
+                <div class="gen gen-4"
+                    style="flex-direction:column; gap:0; align-items:center;">
+                    <div class="conector-v" style="height:38px;"></div>
+                    <div class="conector-v--dot"></div>
+                    <div class="conector-v" style="height:28px;"></div>
+                </div>
+
+                <!-- ══ GEN 3: Endika ══ -->
+                <div class="gen gen-5">
+                    <div class="nodo nodo--endika"
+                        onclick="abrirModal('endika')" tabindex="0"
+                        role="button" aria-label="Ver perfil de Endika">
+                        <div class="nodo-foto">
+                            <img src alt="Endika"
+                                onerror="this.style.display='none'">
+                            <span class="nodo-inicial">E</span>
+                        </div>
+                        <span class="nodo-nombre">Endika</span>
+                        <span class="nodo-rol">Tu hijo</span>
+                    </div>
+                </div>
+
+            </div><!-- /arbol-wrap -->
+
+            <p class="arbol-footer-note">Toca cada persona para ver su
+                historia</p>
+
+        </div><!-- /arbol-page -->
+
+        <!-- ════════ MODAL ════════ -->
+        <div class="arbol-modal-bg" id="arbolModalBg"
+            onclick="cerrarModal(event)">
+            <div class="arbol-modal" id="arbolModal">
+                <button class="arbol-modal-close"
+                    onclick="cerrarModal(null)">✕</button>
+                <div class="arbol-modal-foto">
+                    <img id="modalImg" src alt
+                        onerror="this.style.display='none'">
+                    <span class="nodo-inicial" id="modalInicial"></span>
+                </div>
+                <h2 id="modalNombre"></h2>
+                <span class="modal-rol" id="modalRol"></span>
+                <div class="arbol-modal-rule"></div>
+                <p class="modal-frase" id="modalFrase"></p>
+            </div>
+        </div>
+    </body>
+</html>

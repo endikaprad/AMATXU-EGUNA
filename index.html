@@ -23,6 +23,7 @@
     </noscript>
 
     <link rel="stylesheet" href="estilos.css">
+    <link rel="stylesheet" href="navbar.css">
 
     <!-- ✅ Scripts con defer — descarga en paralelo, ejecuta tras parsear HTML -->
     <script src="reveal.js" defer></script>
@@ -31,8 +32,49 @@
     <script src="galerias.js" defer></script>
     <script src="videos.js" defer></script>
     <script src="contador.js" defer></script>
+    <script src="navbar.js" defer></script>
   </head>
   <body>
+
+    <!-- ════════ BARRA DE NAVEGACIÓN ════════ -->
+    <nav class="navbar" aria-label="Navegación principal">
+      <div class="navbar-menu" id="navMenu" role="menubar">
+
+        <a class="nav-item" href="index.html" data-page="index.html"
+          role="menuitem">
+          <span class="nav-item-text">Inicio</span>
+        </a>
+
+        <div class="nav-sep"></div>
+
+        <a class="nav-item" href="index.html#album-section"
+          data-page="index.html" role="menuitem">
+          <span class="nav-item-text">Recuerdos</span>
+        </a>
+
+        <div class="nav-sep"></div>
+
+        <a class="nav-item" href="index.html#amama-videos"
+          data-page="index.html" role="menuitem">
+          <span class="nav-item-text">Amama</span>
+        </a>
+
+        <div class="nav-sep"></div>
+
+        <a class="nav-item" href="index.html#quote-section"
+          data-page="index.html" role="menuitem">
+          <span class="nav-item-text">Para ti</span>
+        </a>
+
+        <div class="nav-sep"></div>
+
+        <a class="nav-item" href="arbol.html" data-page="arbol.html"
+          role="menuitem">
+          <span class="nav-item-text">Árbol familiar</span>
+        </a>
+
+      </div>
+    </nav>
 
     <div id="petals"></div>
 
@@ -40,7 +82,8 @@
     <div id="welcome-overlay" data-step="1">
       <span class="welcome-flower">🎂</span>
       <div class="welcome-line"></div>
-      <p class="welcome-text">Te pongo un pastel virtual para que le empieces<br>a hacer caso a la <em>nutricionista</em> 😏</p>
+      <p class="welcome-text">Te pongo un pastel virtual para que le
+        empieces<br>a hacer caso a la <em>nutricionista</em> 😏</p>
       <button class="welcome-btn" id="btn-hare-caso">Le haré caso</button>
     </div>
 
@@ -170,7 +213,7 @@
             <span class="era-label">Tu juventud</span>
             <h2 class="era-title">Cuando todo<br>era <em>nuevo</em></h2>
             <p class="era-text">Los años de crecer, aprender y descubrir el
-              mundo. Una infancia llena de recuerdos que moldearon a la mujer
+              mundo. Una juventud llena de recuerdos que moldearon a la mujer
               increíble que eres hoy.</p>
           </div>
         </div>
@@ -190,7 +233,7 @@
             <span class="era-label">Un día inolvidable</span>
             <h2 class="era-title">El día del<br><em>"sí, quiero"</em></h2>
             <p class="era-text">Un "sí" que cambió el rumbo de tu historia</p>
-            <p class="era-text" style="margin-top:0.5rem">y de la mía...</p>
+            <p class="era-text" style="margin-top:0.5rem">y la de Aita.</p>
           </div>
           <div class="era-dot">
             <div class="era-dot-circle"></div>
@@ -253,7 +296,7 @@
     </div>
 
     <!-- ════════ ÁLBUM DE FOTOS ════════ -->
-    <section class="album-section">
+    <section class="album-section" id="album-section">
       <div class="album-container">
         <span class="section-label">Álbum de recuerdos</span>
         <h2 class="section-title">Momentos que<br><em>nunca
@@ -316,7 +359,7 @@
     </section>
 
     <!-- ════════ VÍDEOS AMAMA ════════ -->
-    <section class="amama-videos-section reveal">
+    <section class="amama-videos-section reveal" id="amama-videos">
       <div class="amama-videos-header">
         <span class="section-label">En su memoria</span>
         <h2 class="section-title">Recuerdos de <em>Amama y Aitite</em></h2>
@@ -427,7 +470,7 @@
     </div>
 
     <!-- ════════ CITA ════════ -->
-    <section class="quote-section has-video reveal">
+    <section class="quote-section has-video reveal" id="quote-section">
       <div class="video-overlay"></div>
       <div class="quote-inner">
         <span class="quote-mark">"</span>

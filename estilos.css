@@ -2879,3 +2879,27 @@ video {
         transition: none !important;
     }
 }
+
+/* Desktop */
+.antonia-wrap {
+    transform: translateX(0px);
+}
+
+/* 📱 Móvil */
+@media (max-width: 480px) {
+    .antonia-wrap {
+        transform: translateX(32.2px);
+    }
+}
+
+/* Desktop (no tocar) */
+.conector-antonia {
+    transform: translateX(0px);
+}
+
+/* 📱 Móvil */
+@media (max-width: 480px) {
+    .conector-antonia {
+        transform: translateX(13px);
+    }
+}
