@@ -576,7 +576,7 @@
 /* 📱 Móvil */
 @media (max-width: 480px) {
     .conector-antonia {
-        transform: translateX(10px);
+        transform: translateX(12px);
     }
 }
 /* 📱 Móvil — Endika centrado entre Aita y Ama
