@@ -1,3 +1,13 @@
+// Si viene de una recarga, borrar sesión y volver al login
+if (performance.getEntriesByType("navigation")[0]?.type === "reload") {
+    sessionStorage.removeItem("amatxu_acceso");
+    window.location.replace("index.html");
+}
+
+if (sessionStorage.getItem("amatxu_acceso") !== "1") {
+    window.location.replace("index.html");
+}
+
 if (sessionStorage.getItem("amatxu_acceso") !== "1") {
     window.location.replace("index.html");
 }
