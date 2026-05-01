@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="theme-color" content="#200e0c">
+        <link rel="icon" type="image/png" href="img/logoWeb.png">
+        <title>Para amatxu ♥️</title>
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=DM+Mono:wght@300;400&family=Caveat:wght@400;500;600;700&family=Reenie+Beanie&display=swap">
+
+        <link rel="stylesheet" href="estilos.css">
+        <link rel="stylesheet" href="navbar.css">
+        <link rel="stylesheet" href="carta.css">
+
+        <script src="petalos.js" defer></script>
+        <script src="navbar.js" defer></script>
+        <script src="carta.js" defer></script>
+    </head>
+    <body>
+
+        <!-- PÉTALOS -->
+        <div id="petals"></div>
+
+        <!-- ════════ NAVBAR ════════ -->
+        <nav class="navbar" aria-label="Navegación principal">
+            <div class="navbar-menu" id="navMenu" role="menubar">
+
+                <a class="nav-item" href="index.html" data-page="index.html"
+                    role="menuitem">
+                    <span class="nav-item-text">Inicio</span>
+                </a>
+                <div class="nav-sep"></div>
+                <a class="nav-item" href="index.html#album-section"
+                    role="menuitem">
+                    <span class="nav-item-text">Recuerdos</span>
+                </a>
+                <div class="nav-sep"></div>
+                <a class="nav-item" href="index.html#amama-videos"
+                    role="menuitem">
+                    <span class="nav-item-text">Amama</span>
+                </a>
+                <div class="nav-sep"></div>
+                <a class="nav-item" href="arbol.html" data-page="arbol.html"
+                    role="menuitem">
+                    <span class="nav-item-text">Árbol familiar</span>
+                </a>
+                <div class="nav-sep"></div>
+                <a class="nav-item" href="mapa.html" data-page="mapa.html"
+                    role="menuitem">
+                    <span class="nav-item-text">Tus lugares</span>
+                </a>
+                <div class="nav-sep"></div>
+                <a class="nav-item active" href="carta.html"
+                    data-page="carta.html" role="menuitem">
+                    <span class="nav-item-text">La Carta</span>
+                </a>
+
+            </div>
+        </nav>
+
+        <!-- ════════ PÁGINA ════════ -->
+        <div class="carta-page">
+
+            <!-- Cabecera -->
+            <div class="carta-header">
+                <span class="carta-eyebrow">para amatxu · con todo mi
+                    amor</span>
+                <h1 class="carta-title">Lo que aprendí<br><em>de ti</em></h1>
+                <div class="carta-divider"></div>
+                <p class="carta-subtitle">Una sorpresita...</p>
+            </div>
+
+            <!-- Sobre animado -->
+            <div class="sobre-wrap" id="sobreWrap" aria-label="Abre la carta"
+                role="button" tabindex="0">
+                <div class="sobre" id="sobre">
+                    <div class="sobre-solapa" id="sobreSolapa"></div>
+                    <div class="sobre-cuerpo">
+                        <div class="sobre-sello">
+                            <span class="sobre-sello-emoji">♥</span>
+                            <span class="sobre-sello-text">AMOR</span>
+                        </div>
+                        <div class="sobre-lineas">
+                            <div class="sobre-linea"></div>
+                            <div class="sobre-linea"></div>
+                            <div class="sobre-linea"></div>
+                        </div>
+                    </div>
+                    <div class="sobre-hint" id="sobreHint">
+                        <span>Toca para abrir</span>
+                        <div class="sobre-hint-arrow">↓</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Carta (oculta hasta abrir el sobre) -->
+            <div class="carta-wrap" id="cartaWrap" aria-hidden="true">
+
+                <!-- Hoja de carta -->
+                <div class="carta-hoja" id="cartaHoja">
+
+                    <!-- Decoración esquinas -->
+                    <div class="hoja-corner hoja-corner--tl"></div>
+                    <div class="hoja-corner hoja-corner--tr"></div>
+                    <div class="hoja-corner hoja-corner--bl"></div>
+                    <div class="hoja-corner hoja-corner--br"></div>
+
+                    <!-- Líneas de pauta -->
+                    <div class="hoja-pauta" aria-hidden="true">
+                        <div class="pauta-margen"></div>
+                        <div class="pauta-lineas" id="pautaLineas"></div>
+                    </div>
+
+                    <!-- Contenido de la carta -->
+                    <div class="carta-contenido">
+
+                        <div class="carta-fecha reveal-carta">
+                            <span id="cartaFecha"></span>
+                        </div>
+
+                        <div class="carta-saludo reveal-carta">
+                            Ama,
+                        </div>
+
+                        <div class="carta-parrafo reveal-carta">
+                            Hay cosas que una madre enseña sin darse cuenta. Sin
+                            libro, sin
+                            lección, sin discurso. Solo con la forma en que
+                            vive, en que
+                            mira, en que cuida. Tú me enseñaste más de lo que
+                            sabes, y hoy
+                            quiero que lo sepas.
+                        </div>
+
+                        <div class="carta-leccion reveal-carta">
+                            <span class="leccion-numero">01</span>
+                            <div class="leccion-cuerpo">
+                                <p class="leccion-titulo">Que el silencio
+                                    también es amor.</p>
+                                <p class="leccion-texto">Aprendí de ti que no
+                                    hace falta decir "te quiero" en voz alta
+                                    cada día. A veces tener la mesa preparada
+                                    al volver a casa. El jersey
+                                    doblado en la silla. La puerta entreabierta
+                                    para escuchar si estoy bien.</p>
+                            </div>
+                        </div>
+
+                        <div class="carta-leccion reveal-carta">
+                            <span class="leccion-numero">02</span>
+                            <div class="leccion-cuerpo">
+                                <p class="leccion-titulo">Que la cocina puede
+                                    ser el lugar más seguro del mundo.</p>
+                                <p class="leccion-texto">Cuando algo iba mal,
+                                    siempre acababa en la cocina contigo.
+                                    No sé si era por la comida o por hablar
+                                    un rato, pero se pasaba. Ahí, todo parecía
+                                    solucionarse. Me enseñaste que el hogar no
+                                    es una casa, es una persona.</p>
+                            </div>
+                        </div>
+
+                        <div class="carta-leccion reveal-carta">
+                            <span class="leccion-numero">03</span>
+                            <div class="leccion-cuerpo">
+                                <p class="leccion-titulo">Que se puede ser
+                                    fuerte, y aún así seguir estando ahí.</p>
+                                <p class="leccion-texto">Nunca te vi rendirte.
+                                    Me enseñaste que la fortaleza más grande no
+                                    es la que grita, sino
+                                    la que aguanta con una sonrisa y sigue
+                                    adelante sin hacer ruido.</p>
+                            </div>
+                        </div>
+
+                        <div class="carta-leccion reveal-carta">
+                            <span class="leccion-numero">04</span>
+                            <div class="leccion-cuerpo">
+                                <p class="leccion-titulo">Que lo importante rara
+                                    vez es urgente.</p>
+                                <p class="leccion-texto">Me enseñaste a parar. A
+                                    sentarme. A no correr siempre.
+                                    Lo mejor contigo nunca han sido los planes.
+                                    Han sido los ratos normales: estar en casa,
+                                    salir a dar una vuelta sin más, hablar de
+                                    cualquier tontería.
+                                    Al final, lo que importa es eso.</p>
+                            </div>
+                        </div>
+
+                        <div class="carta-leccion reveal-carta">
+                            <span class="leccion-numero">05</span>
+                            <div class="leccion-cuerpo">
+                                <p class="leccion-titulo">Que querer bien no es
+                                    querer siempre igual.</p>
+                                <p class="leccion-texto">A veces me dabas lo que
+                                    quería… y otras no.
+                                    En su momento me parecía injusto, pero visto
+                                    ahora, la mayoría de veces tenía sentido,
+                                    jeje.</p>
+                            </div>
+                        </div>
+
+                        <div class="carta-leccion reveal-carta">
+                            <span class="leccion-numero">06</span>
+                            <div class="leccion-cuerpo">
+                                <p class="leccion-titulo">Que la elegancia no es
+                                    ropa, es actitud.</p>
+                                <p class="leccion-texto">Tú nunca presumiste de
+                                    nada, pero siempre fuiste la persona
+                                    más digna de cualquier habitación en la que
+                                    estabas. Me enseñaste que
+                                    la clase se lleva por dentro, y que lo más
+                                    bonito que uno puede ponerse
+                                    es la amabilidad.</p>
+                            </div>
+                        </div>
+
+                        <div class="carta-leccion reveal-carta">
+                            <span class="leccion-numero">07</span>
+                            <div class="leccion-cuerpo">
+                                <p class="leccion-titulo">Que los abrazos curan
+                                    cosas que no tienen nombre.</p>
+                                <p class="leccion-texto">Hay dolores que no se
+                                    pueden explicar. Que no tienen diagnóstico
+                                    ni pastilla. Pero con un abrazo tuyo siempre
+                                    me sentí menos solo. Aún hoy,
+                                    con los años que tengo, un abrazo tuyo lo
+                                    sigue siendo todo.</p>
+                            </div>
+                        </div>
+
+                        <div class="carta-parrafo reveal-carta">
+                            Podría seguir escribiendo. Esta carta podría no
+                            tener final. Pero creo que
+                            lo más importante ya lo sabes: muchas cosas buenas
+                            que tengo vienen de ti.
+                            Y la verdad, me alegro de que sea así.
+                        </div>
+
+                        <div class="carta-cierre reveal-carta">
+                            <p class="cierre-texto">Con todo lo que no sé
+                                decirte en voz alta,</p>
+                            <p class="cierre-firma">Tu hijo ♥</p>
+                        </div>
+
+                        <!-- Flor decorativa al final -->
+                        <div class="carta-flor reveal-carta" aria-hidden="true">
+                            <div class="flor-inner">✿</div>
+                        </div>
+
+                    </div><!-- /carta-contenido -->
+
+                </div><!-- /carta-hoja -->
+
+            </div><!-- /carta-wrap -->
+
+            <p class="carta-footer-note" id="cartaFooter" style="display:none;">
+                Para amatxu · Mayo 2025 ♥
+            </p>
+
+        </div><!-- /carta-page -->
+
+    </body>
+</html>

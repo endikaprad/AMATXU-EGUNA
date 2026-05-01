@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="theme-color" content="#200e0c">
+        <link rel="icon" type="image/png" href="img/logoWeb.png">
+        <title>Para amatxu ♥️</title>
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=DM+Mono:wght@300;400&display=swap">
+
+        <!-- Leaflet CSS -->
+        <link rel="stylesheet"
+            href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+
+        <link rel="stylesheet" href="estilos.css">
+        <link rel="stylesheet" href="navbar.css">
+        <link rel="stylesheet" href="mapa.css">
+
+        <script src="petalos.js" defer></script>
+        <script src="navbar.js" defer></script>
+        <!-- Leaflet JS — debe cargarse ANTES que mapa.js -->
+        <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+        <script src="mapa.js" defer></script>
+    </head>
+    <body>
+
+        <!-- PÉTALOS -->
+        <div id="petals"></div>
+
+        <!-- ════════ NAVBAR ════════ -->
+        <nav class="navbar" aria-label="Navegación principal">
+            <div class="navbar-menu" id="navMenu" role="menubar">
+
+                <a class="nav-item" href="index.html" data-page="index.html"
+                    role="menuitem">
+                    <span class="nav-item-text">Inicio</span>
+                </a>
+
+                <div class="nav-sep"></div>
+
+                <a class="nav-item" href="index.html#album-section"
+                    role="menuitem">
+                    <span class="nav-item-text">Recuerdos</span>
+                </a>
+
+                <div class="nav-sep"></div>
+
+                <a class="nav-item" href="index.html#amama-videos"
+                    role="menuitem">
+                    <span class="nav-item-text">Amama</span>
+                </a>
+
+                <div class="nav-sep"></div>
+
+                <a class="nav-item" href="arbol.html" data-page="arbol.html"
+                    role="menuitem">
+                    <span class="nav-item-text">Árbol familiar</span>
+                </a>
+
+                <div class="nav-sep"></div>
+
+                <a class="nav-item active" href="mapa.html"
+                    data-page="mapa.html" role="menuitem">
+                    <span class="nav-item-text">Tus lugares</span>
+                </a>
+
+                <a class="nav-item" href="carta.html" data-page="carta.html"
+                    role="menuitem">
+                    <span class="nav-item-text">La Carta</span>
+                </a>
+
+            </div>
+        </nav>
+
+        <!-- ════════ PÁGINA ════════ -->
+        <div class="mapa-page">
+
+            <!-- Cabecera -->
+            <div class="mapa-header">
+                <span class="mapa-eyebrow">tus raíces · tu historia</span>
+                <h1 class="mapa-title">Los lugares que<br><em>te
+                        hicieron</em></h1>
+                <div class="mapa-divider"></div>
+                <p class="mapa-subtitle">Cada punto en este mapa guarda un
+                    pedazo de tu vida</p>
+            </div>
+
+            <!-- Contenedor principal -->
+            <div class="mapa-wrap">
+
+                <!-- MAPA -->
+                <div class="mapa-container">
+                    <div id="mapa-leaflet"></div>
+                </div>
+
+                <!-- Lista de lugares -->
+                <p class="lugares-titulo">— toca un lugar para verlo en el mapa
+                    —</p>
+
+                <div class="lugares-grid" id="lugaresGrid">
+                    <!-- Las tarjetas se generan desde JS -->
+                </div>
+
+            </div><!-- /mapa-wrap -->
+
+            <p class="mapa-footer-note">
+                Cada punto, un recuerdo. Cada recuerdo, una parte de ti. ♥
+            </p>
+
+        </div><!-- /mapa-page -->
+
+        <script>
+        </script>
+
+    </body>
+</html>

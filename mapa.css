@@ -1,0 +1,518 @@
+/* ════════════════════════════════
+   MAPA DE SUS LUGARES — estilos propios
+════════════════════════════════ */
+
+.mapa-page {
+    min-height: 100vh;
+    padding: 0 0 6rem;
+    position: relative;
+    background:
+        radial-gradient(ellipse 90% 60% at 50% 10%, #3d2010 0%, #1a0a08 55%, #0d0503 100%);
+    overflow-x: hidden;
+}
+
+.mapa-page::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* ── Cabecera ── */
+.mapa-header {
+    text-align: center;
+    padding: 5.5rem 2rem 2.5rem;
+    position: relative;
+    z-index: 2;
+}
+
+.mapa-eyebrow {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.5em;
+    text-transform: uppercase;
+    color: var(--gold);
+    display: block;
+    margin-bottom: 1rem;
+    opacity: 0;
+    animation: fadeUp 0.8s ease forwards 0.2s;
+}
+
+.mapa-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.2rem, 7vw, 4.5rem);
+    font-weight: 400;
+    color: var(--sepia-light);
+    line-height: 1.1;
+    opacity: 0;
+    animation: fadeUp 0.9s ease forwards 0.4s;
+}
+
+.mapa-title em {
+    color: var(--rose);
+    font-style: italic;
+}
+
+.mapa-divider {
+    width: 60px;
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--gold), transparent);
+    margin: 1.8rem auto 0.8rem;
+    opacity: 0;
+    animation: fadeUp 0.8s ease forwards 0.7s;
+}
+
+.mapa-subtitle {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1rem;
+    font-style: italic;
+    color: rgb(196 164 124 / 69%);
+    letter-spacing: 0.08em;
+    opacity: 0;
+    animation: fadeUp 0.8s ease forwards 0.9s;
+}
+
+/* ════════════════════════════════
+   CONTENEDOR PRINCIPAL
+════════════════════════════════ */
+.mapa-wrap {
+    position: relative;
+    z-index: 2;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 1rem 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+/* ════════════════════════════════
+   MAPA LEAFLET — contenedor
+════════════════════════════════ */
+.mapa-container {
+    position: relative;
+    width: 100%;
+    border-radius: 18px;
+    overflow: hidden;
+    border: 1px solid rgba(196, 164, 124, 0.22);
+    box-shadow:
+        0 0 0 1px rgba(196, 164, 124, 0.06),
+        0 8px 40px rgba(0, 0, 0, 0.6),
+        0 0 60px rgba(200, 86, 106, 0.06);
+    opacity: 0;
+    animation: fadeUp 1s ease forwards 1s;
+}
+
+#mapa-leaflet {
+    width: 100%;
+    height: 420px;
+    background: #0e0e0e;
+    z-index: 1;
+}
+
+/* Overlay muy sutil encima del mapa — solo para integrar bordes */
+.mapa-container::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(20, 5, 2, 0.08);
+    pointer-events: none;
+    z-index: 10;
+    border-radius: 18px;
+}
+
+/* Marco decorativo esquinas */
+.mapa-container::before {
+    content: '';
+    position: absolute;
+    inset: 6px;
+    border: 1px solid rgba(196, 164, 124, 0.08);
+    border-radius: 14px;
+    pointer-events: none;
+    z-index: 11;
+}
+
+/* ════════════════════════════════
+   LEAFLET OVERRIDES — tema Dark Matter
+════════════════════════════════ */
+.leaflet-container {
+    font-family: 'Cormorant Garamond', serif !important;
+    background: #0e0e0e !important;
+}
+
+.leaflet-tile {
+    /* Dark Matter ya es oscuro — solo un leve toque cálido para encajar con la web */
+    filter: brightness(0.92) saturate(0.85) hue-rotate(5deg) !important;
+}
+
+.leaflet-control-zoom {
+    border: 1px solid rgba(196, 164, 124, 0.28) !important;
+    border-radius: 10px !important;
+    overflow: hidden;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5) !important;
+}
+
+.leaflet-control-zoom-in,
+.leaflet-control-zoom-out {
+    background: rgba(14, 5, 3, 0.88) !important;
+    color: rgba(196, 164, 124, 0.8) !important;
+    border: none !important;
+    font-size: 16px !important;
+    width: 32px !important;
+    height: 32px !important;
+    line-height: 32px !important;
+    transition: background 0.2s, color 0.2s !important;
+}
+
+.leaflet-control-zoom-in:hover,
+.leaflet-control-zoom-out:hover {
+    background: rgba(200, 86, 106, 0.2) !important;
+    color: var(--rose) !important;
+}
+
+.leaflet-control-attribution {
+    background: rgba(10, 4, 2, 0.7) !important;
+    color: rgba(196, 164, 124, 0.3) !important;
+    font-size: 8px !important;
+    font-family: 'DM Mono', monospace !important;
+}
+
+.leaflet-control-attribution a {
+    color: rgba(196, 164, 124, 0.4) !important;
+}
+
+/* Popup personalizado */
+.leaflet-popup-content-wrapper {
+    background: rgba(20, 8, 5, 0.95) !important;
+    border: 1px solid rgba(196, 164, 124, 0.3) !important;
+    border-radius: 14px !important;
+    box-shadow:
+        0 0 20px rgba(200, 86, 106, 0.12),
+        0 10px 40px rgba(0, 0, 0, 0.7) !important;
+    color: var(--sepia-light) !important;
+    backdrop-filter: blur(10px);
+}
+
+.leaflet-popup-tip {
+    background: rgba(20, 8, 5, 0.95) !important;
+    border-left: 1px solid rgba(196, 164, 124, 0.2) !important;
+    border-bottom: 1px solid rgba(196, 164, 124, 0.2) !important;
+}
+
+.leaflet-popup-content {
+    margin: 14px 16px !important;
+    font-family: 'Cormorant Garamond', serif !important;
+}
+
+.leaflet-popup-close-button {
+    color: rgba(196, 164, 124, 0.5) !important;
+    font-size: 16px !important;
+    top: 8px !important;
+    right: 10px !important;
+    transition: color 0.2s !important;
+}
+
+.leaflet-popup-close-button:hover {
+    color: var(--rose) !important;
+    background: none !important;
+}
+
+/* ════════════════════════════════
+   POPUP CONTENIDO
+════════════════════════════════ */
+.popup-emoji {
+    font-size: 1.6rem;
+    display: block;
+    text-align: center;
+    margin-bottom: 0.4rem;
+    filter: drop-shadow(0 0 8px rgba(200, 86, 106, 0.4));
+}
+
+.popup-titulo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    font-weight: 400;
+    color: var(--sepia-light);
+    text-align: center;
+    margin-bottom: 0.2rem;
+    line-height: 1.3;
+}
+
+.popup-anyo {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold);
+    text-align: center;
+    display: block;
+    margin-bottom: 0.6rem;
+}
+
+.popup-rule {
+    width: 30px;
+    height: 1px;
+    background: linear-gradient(to right, transparent, rgba(196, 164, 124, 0.4), transparent);
+    margin: 0 auto 0.6rem;
+}
+
+.popup-desc {
+    font-size: 0.88rem;
+    color: rgb(196 164 124 / 80%);
+    font-style: italic;
+    text-align: center;
+    line-height: 1.6;
+    width: 100%;
+}
+
+/* ════════════════════════════════
+   MARCADORES SVG personalizados
+════════════════════════════════ */
+.marcador-custom {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    transform-origin: bottom center;
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.6));
+}
+
+.marcador-custom:hover {
+    transform: scale(1.15) translateY(-4px);
+}
+
+/* ════════════════════════════════
+   LISTA DE LUGARES — tarjetas
+════════════════════════════════ */
+.lugares-titulo {
+    text-align: center;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.45em;
+    text-transform: uppercase;
+    color: rgba(196, 164, 124, 0.4);
+    margin-bottom: 0.5rem;
+    opacity: 0;
+    animation: fadeUp 0.8s ease forwards 1.3s;
+}
+
+.lugares-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 1rem;
+    opacity: 0;
+    animation: fadeUp 0.9s ease forwards 1.5s;
+}
+
+.lugar-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(196, 164, 124, 0.14);
+    border-radius: 14px;
+    padding: 1.2rem 1.1rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 0.9rem;
+    cursor: pointer;
+    transition:
+        background 0.25s,
+        border-color 0.25s,
+        box-shadow 0.25s,
+        transform 0.3s cubic-bezier(0.34, 1.3, 0.64, 1);
+    -webkit-tap-highlight-color: transparent;
+    position: relative;
+    overflow: hidden;
+}
+
+.lugar-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(200, 86, 106, 0.04) 0%, transparent 60%);
+    opacity: 0;
+    transition: opacity 0.3s;
+    border-radius: 14px;
+}
+
+.lugar-card:hover::before,
+.lugar-card.activa::before {
+    opacity: 1;
+}
+
+.lugar-card:hover,
+.lugar-card.activa {
+    background: rgba(200, 86, 106, 0.06);
+    border-color: rgba(200, 86, 106, 0.3);
+    box-shadow:
+        0 0 0 1px rgba(200, 86, 106, 0.1),
+        0 8px 28px rgba(0, 0, 0, 0.4);
+    transform: translateY(-3px);
+}
+
+.lugar-card.activa {
+    border-color: rgba(200, 86, 106, 0.5);
+}
+
+.lugar-emoji {
+    font-size: 1.6rem;
+    line-height: 1;
+    flex-shrink: 0;
+    margin-top: 0.1rem;
+    filter: drop-shadow(0 0 6px rgba(200, 86, 106, 0.3));
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.lugar-card:hover .lugar-emoji {
+    transform: scale(1.15) rotate(-5deg);
+}
+
+.lugar-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.lugar-nombre {
+    font-family: 'Playfair Display', serif;
+    font-size: 0.95rem;
+    font-weight: 400;
+    color: var(--sepia-light);
+    line-height: 1.3;
+    margin-bottom: 0.15rem;
+}
+
+.lugar-anyo {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.55rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold);
+    display: block;
+    margin-bottom: 0.35rem;
+}
+
+.lugar-desc {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.82rem;
+    font-style: italic;
+    color: rgba(196, 164, 124, 0.52);
+    line-height: 1.5;
+}
+
+.lugar-flecha {
+    align-self: center;
+    font-size: 0.7rem;
+    color: rgba(196, 164, 124, 0.25);
+    transition: color 0.2s, transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    flex-shrink: 0;
+}
+
+.lugar-card:hover .lugar-flecha,
+.lugar-card.activa .lugar-flecha {
+    color: var(--rose);
+    transform: translateX(4px);
+}
+
+/* ── Footer note ── */
+.mapa-footer-note {
+    text-align: center;
+    margin-top: 2.5rem;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.85rem;
+    font-style: italic;
+    color: rgb(196 164 124 / 68%);
+    letter-spacing: 0.08em;
+    position: relative;
+    z-index: 2;
+    padding: 0 2rem;
+    opacity: 0;
+    animation: fadeUp 0.8s ease forwards 1.8s;
+}
+
+/* ════════════════════════════════
+   ANIMACIONES GLOBALES
+════════════════════════════════ */
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(16px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes shake {
+
+    0%,
+    100% {
+        transform: translateX(0);
+    }
+
+    20% {
+        transform: translateX(-8px);
+    }
+
+    40% {
+        transform: translateX(8px);
+    }
+
+    60% {
+        transform: translateX(-5px);
+    }
+
+    80% {
+        transform: translateX(5px);
+    }
+}
+
+/* Pulso suave en el marcador activo */
+@keyframes pinPulse {
+
+    0%,
+    100% {
+        filter: drop-shadow(0 0 6px rgba(200, 86, 106, 0.5));
+    }
+
+    50% {
+        filter: drop-shadow(0 0 18px rgba(200, 86, 106, 0.9));
+    }
+}
+
+/* ── Línea de ruta animada en el mapa ── */
+.leaflet-pane.leaflet-overlay-pane path {
+    stroke-dasharray: 8 5;
+    animation: dashMove 18s linear infinite;
+}
+
+@keyframes dashMove {
+    to {
+        stroke-dashoffset: -400;
+    }
+}
+
+/* ════════════════════════════════
+   RESPONSIVE
+════════════════════════════════ */
+@media (max-width: 600px) {
+    #mapa-leaflet {
+        height: 320px;
+    }
+
+    .lugares-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .lugar-card {
+        padding: 1rem 0.9rem;
+    }
+}
+
+@media (max-width: 380px) {
+    .mapa-title {
+        font-size: 2rem;
+    }
+}

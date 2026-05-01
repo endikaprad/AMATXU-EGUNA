@@ -50,16 +50,20 @@
 
                 <div class="nav-sep"></div>
 
-                <a class="nav-item" href="index.html#quote-section"
-                    role="menuitem">
-                    <span class="nav-item-text">Para ti</span>
-                </a>
-
-                <div class="nav-sep"></div>
-
                 <a class="nav-item active" href="arbol.html"
                     data-page="arbol.html" role="menuitem">
                     <span class="nav-item-text">Árbol familiar</span>
+                </a>
+
+                <div class="nav-sep"></div>
+                <a class="nav-item" href="mapa.html" data-page="mapa.html"
+                    role="menuitem">
+                    <span class="nav-item-text">Tus lugares</span>
+                </a>
+
+                <a class="nav-item" href="carta.html" data-page="carta.html"
+                    role="menuitem">
+                    <span class="nav-item-text">La Carta</span>
                 </a>
 
             </div>
@@ -221,23 +225,27 @@
                 <!-- Conector gen 2 → gen 3 -->
                 <div class="gen gen-4"
                     style="flex-direction:column; gap:0; align-items:center;">
-                    <div class="conector-v" style="height:38px;"></div>
-                    <div class="conector-v--dot"></div>
-                    <div class="conector-v" style="height:28px;"></div>
+                    <div class="endika-eje">
+                        <div class="conector-v" style="height:38px;"></div>
+                        <div class="conector-v--dot"></div>
+                        <div class="conector-v" style="height:28px;"></div>
+                    </div>
                 </div>
 
                 <!-- ══ GEN 3: Endika ══ -->
                 <div class="gen gen-5">
-                    <div class="nodo nodo--endika"
-                        onclick="abrirModal('endika')" tabindex="0"
-                        role="button" aria-label="Ver perfil de Endika">
-                        <div class="nodo-foto">
-                            <img src alt="Endika"
-                                onerror="this.style.display='none'">
-                            <span class="nodo-inicial">E</span>
+                    <div class="endika-eje">
+                        <div class="nodo nodo--endika"
+                            onclick="abrirModal('endika')" tabindex="0"
+                            role="button" aria-label="Ver perfil de Endika">
+                            <div class="nodo-foto">
+                                <img src alt="Endika"
+                                    onerror="this.style.display='none'">
+                                <span class="nodo-inicial">E</span>
+                            </div>
+                            <span class="nodo-nombre">Endika</span>
+                            <span class="nodo-rol">Tu hijo</span>
                         </div>
-                        <span class="nodo-nombre">Endika</span>
-                        <span class="nodo-rol">Tu hijo</span>
                     </div>
                 </div>
 
@@ -265,5 +273,7 @@
                 <p class="modal-frase" id="modalFrase"></p>
             </div>
         </div>
+    </body>
+</html>
     </body>
 </html>

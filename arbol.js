@@ -50,7 +50,7 @@ const personas = {
     },
     ama: {
         nombre: "Ama",
-        rol: "Mi madre ❤️",
+        rol: "❤️",
         inicial: "M",
         foto: "img/arbol/ama.jpg",
         frase: "El centro de todo. La persona que hizo de nuestra casa un hogar con solo estar en él."
@@ -59,7 +59,7 @@ const personas = {
         nombre: "Endika",
         rol: "Tu hijo",
         inicial: "E",
-        foto: "img/arbol/endika.jpg",
+        foto: "img/arbol/endika.png",
         frase: "El que más te quiere, aunque no siempre lo diga :)"
     }
 };

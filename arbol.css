@@ -481,6 +481,7 @@
 .gen-4 {
     opacity: 0;
     animation: fadeUp 0.7s ease forwards 1.05s;
+     margin-top: -40px; /* ajuste para subir ligeramente Endika y compensar el gap del conector en móvil */
 }
 
 .gen-5 {
@@ -576,5 +577,26 @@
 @media (max-width: 480px) {
     .conector-antonia {
         transform: translateX(10px);
+    }
+}
+/* 📱 Móvil — Endika centrado entre Aita y Ama
+   El grid gen-3 es 1fr|80px|1fr. Ama ocupa col-3.
+   En móvil desplazamos el eje interno a la derecha. */
+.endika-eje {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+@media (max-width: 480px) {
+    .endika-eje {
+        margin-left: 20%;
+    }
+}
+
+/* 📱 Móvil — centrar el conector de boda entre Aita y Ama */
+@media (max-width: 480px) {
+    .boda-conector {
+        transform: translateX(9px);
     }
 }
