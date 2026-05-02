@@ -1332,13 +1332,13 @@ body::after {
     display: flex;
     justify-content: center;
     align-items: flex-start;
-    gap: 3rem;
-    flex-wrap: wrap;
+    gap: 1.6rem;
+    flex-wrap: nowrap;
     margin-top: 3.5rem;
 }
 
 .album-card {
-    width: 260px;
+    width: clamp(180px, 22vw, 240px);
     background: #fdf8f2;
     padding: 12px 12px 54px 12px;
     box-shadow:
@@ -2242,14 +2242,16 @@ html.no-scroll {
     }
 
     .album-grid {
-        flex-direction: column;
+        flex-direction: row;
+        flex-wrap: wrap;
         align-items: center;
-        gap: 3.5rem;
+        justify-content: center;
+        gap: 2rem;
         margin-top: 3rem;
     }
 
     .album-card {
-        width: min(280px, 82vw);
+        width: min(200px, 42vw);
     }
 
     .login-box {

@@ -315,16 +315,31 @@
 
           <div class="album-grid">
 
-            <!-- Tarjeta 1 — Juventud -->
-            <div class="album-card reveal" onclick="abrirGaleria(0)">
+            <!-- Tarjeta 0 — Infancia (NUEVA) -->
+            <div class="album-card album-card--rot-neg reveal" onclick="abrirGaleria(0)">
               <div class="album-card-photo">
-                <img src="img/infancia.webp" alt="Juventud" width="400"
+                <img src="img/infancia.webp" alt="Infancia" width="400"
                   height="300" loading="lazy" decoding="async">
                 <div class="album-card-tape album-card-tape--tl"></div>
                 <div class="album-card-tape album-card-tape--br"></div>
               </div>
               <div class="album-card-caption">
-                <span class="album-card-year">1971 – 2000</span>
+                <span class="album-card-year">1971 – 1985</span>
+                <h3 class="album-card-title">Infancia</h3>
+                <p class="album-card-text">Los primeros pasos, los primeros recuerdos.</p>
+              </div>
+            </div>
+
+            <!-- Tarjeta 1 — Juventud -->
+            <div class="album-card reveal" onclick="abrirGaleria(1)">
+              <div class="album-card-photo">
+                <img src="img/juventud.webp" alt="Juventud" width="400"
+                  height="300" loading="lazy" decoding="async">
+                <div class="album-card-tape album-card-tape--tl"></div>
+                <div class="album-card-tape album-card-tape--br"></div>
+              </div>
+              <div class="album-card-caption">
+                <span class="album-card-year">1985 – 2000</span>
                 <h3 class="album-card-title">Juventud</h3>
                 <p class="album-card-text">Los primeros años, los primeros
                   sueños.</p>
@@ -333,9 +348,9 @@
 
             <!-- Tarjeta 2 — Boda -->
             <div class="album-card album-card--rot-pos reveal"
-              onclick="abrirGaleria(1)">
+              onclick="abrirGaleria(2)">
               <div class="album-card-photo">
-                <img src="img/familia.webp" alt="Boda" width="400" height="300"
+                <img src="img/boda.webp" alt="Boda" width="400" height="300"
                   loading="lazy" decoding="async">
                 <div class="album-card-tape album-card-tape--tl"></div>
                 <div class="album-card-tape album-card-tape--br"></div>
@@ -349,7 +364,7 @@
 
             <!-- Tarjeta 3 — Mi nacimiento -->
             <div class="album-card album-card--rot-neg reveal"
-              onclick="abrirGaleria(2)">
+              onclick="abrirGaleria(3)">
               <div class="album-card-photo">
                 <img src="img/momentos.webp" alt="Mi nacimiento" width="400"
                   height="300" loading="lazy" decoding="async">
@@ -429,7 +444,7 @@
       </section>
 
       <!-- ════════ HOMENAJE — Amama ════════ -->
-      <section class="tribute-section reveal" onclick="abrirGaleria(3)">
+      <section class="tribute-section reveal" onclick="abrirGaleria(4)">
         <div class="tribute-bg-texture"></div>
 
         <div class="candle" aria-hidden="true">

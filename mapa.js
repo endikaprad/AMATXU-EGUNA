@@ -14,12 +14,12 @@ if (sessionStorage.getItem("amatxu_acceso") !== "1") {
 const lugares = [
     {
         id: "nacimiento",
-        nombre: "Cruces, Baracaldo",
+        nombre: "Sustacha, Sestao",
         anyo: "12 · 09 · 1971",
         emoji: "🌸",
         desc: "El lugar donde empezó todo. Donde diste tu primer llanto y tu primera sonrisa al mundo.",
-        lat: 43.2809,
-        lng: -2.9812,
+        lat: 43.2616514,
+        lng: -2.934468,
         color: "#c8566a"
     },
     {
@@ -33,6 +33,36 @@ const lugares = [
         color: "#3e8838"
     },
     {
+        id: "casaInfancia",
+        nombre: "Tu casa de toda la vida",
+        anyo: "Donde creciste",
+        emoji: "🏡",
+        desc: "Las paredes que te vieron crecer. Cada rincón guarda una historia tuya, una versión de ti que no se olvida.",
+        lat: 43.141150631853066,
+        lng: -2.970239365274921,
+        color: "#8b9e5e"
+    },
+    {
+        id: "presa",
+        nombre: "La Teja — Presa de Artziniega",
+        anyo: "Tus veranos de infancia",
+        emoji: "🏊",
+        desc: "Donde aprendiste a nadar. El agua fría, los gritos, las risas. Esos veranos que nunca se olvidan.",
+        lat: 43.1174803,
+        lng: -3.1407511,
+        color: "#4a90b8"
+    },
+    {
+        id: "primerTrabajo",
+        nombre: "Oronoz-Mugaire, Navarra",
+        anyo: "Tu primer trabajo",
+        emoji: "✨",
+        desc: "Monitora de niños, independiente por primera vez. Con ese sueldo te compraste tus primeros Levi's. No se olvida.",
+        lat: 43.1373896,
+        lng: -1.6099167,
+        color: "#c4a47c"
+    },
+    {
         id: "estudio",
         nombre: "IES Laudio BHI",
         anyo: "Tus años de estudio",
@@ -41,6 +71,26 @@ const lugares = [
         lat: 43.1440,
         lng: -2.9627,
         color: "#c4a47c"
+    },
+    {
+        id: "cine",
+        nombre: "Cine de Laudio",
+        anyo: "Cada domingo con Aita",
+        emoji: "🎬",
+        desc: "Todos los domingos, los dos juntos, en la oscuridad del cine. Una de vuestras pequeñas tradiciones.",
+        lat: 43.14193696971782,
+        lng: -2.9627763902603306,
+        color: "#9b6fa0"
+    },
+    {
+        id: "primerbeso",
+        nombre: "Litxa, Laudio",
+        anyo: "22 · 08 · 1992",
+        emoji: "💋",
+        desc: "Vuestro primer beso. El momento en que todo cambió. El principio de nuestra familia.",
+        lat: 43.141177770687335,
+        lng: -2.9635136602019827,
+        color: "#e8739a"
     },
     {
         id: "boda",
